@@ -31,12 +31,23 @@ Tracks how Nigerian online news attention to **food prices and the cost of livin
 
 ## Results
 
-_Populated after the Day 4–5 notebooks are run._
+_Manual labels (111 rows):_ negative 70% · neutral 22% · positive 8%. Evaluation on a stratified held-out test set of 23 rows.
 
-- Model comparison: `data/clean/model_comparison.csv`
-- Confusion matrices: `reports/figures/confusion_matrix_vader.png`, `confusion_matrix_logistic_regression.png`
-- Error analysis: `data/clean/model_error_analysis.csv`
-- Weekly sentiment: `data/clean/weekly_sentiment_summary.csv`
+| Model | Accuracy | Macro F1 |
+|---|---|---|
+| VADER (rule-based baseline) | 0.35 | 0.26 |
+| TF-IDF + Logistic Regression | **0.74** | **0.48** |
+
+Per-class (Logistic Regression): negative F1 0.86 · neutral F1 0.57 · positive F1 0.00 — only 2 test positives existed and both were missed.
+
+**Key observations**
+
+- The trained classifier clearly outperforms the lexicon baseline; VADER misread most Nigerian news headlines, which rarely use the social-media phrasing it was tuned for.
+- Both models scored zero on the positive class — 9 positives overall (2 in test) is too few to learn from; reported honestly rather than tuned around.
+- Representative errors: a *deceleration* headline ("food inflation slows…") was predicted negative although labelled neutral — rate-of-increase language reads as bad to a bag-of-words model; two price-*transparency* startup headlines were predicted negative because price vocabulary dominates the negative class; one prospective-relief story ("farmers predict lower food prices…", labelled neutral) was predicted positive — arguably the model's read was reasonable.
+- Weekly predicted-sentiment share stayed negative-dominated throughout (50–100% negative per week), with the most negative weeks in early June and late July 2026. No week had a positive-majority tone.
+
+Artifacts: `data/clean/model_comparison.csv`, `reports/figures/confusion_matrix_vader.png`, `reports/figures/confusion_matrix_logistic_regression.png`, `data/clean/model_error_analysis.csv`, `data/clean/weekly_sentiment_summary.csv`.
 
 ## Limitations
 
@@ -46,6 +57,7 @@ _Populated after the Day 4–5 notebooks are run._
 - First and last weeks are partial because the window boundary falls mid-week.
 - English-language headlines only; broadcast-style and social-media discourse are out of scope.
 - Small labelled sample (111); metrics carry wide uncertainty and are reported with class counts.
+- Severe class imbalance (9 positive rows) makes per-class metrics for the positive label unreliable; both models scored zero on it.
 
 ## Ethics
 

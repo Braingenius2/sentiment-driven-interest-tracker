@@ -1,0 +1,7 @@
+row_id,headline,sentiment_label,model_prediction,label_reason
+103,"Rice millers decry import waiver, rising production costs",negative,positive,Millers decry waiver and rising costs
+26,"Religious leaders task govt on insecurity, cost of living crisis",neutral,negative,Religious leaders urge government action prospectively
+52,Bango tells you market food prices before you get there,positive,negative,App helps shoppers know prices beforehand
+107,Nigeria’s Bango Uses Price Data to Bring Transparency to Food Markets,positive,negative,Price data brings market transparency
+3,Nigeria’s food inflation slows to 16.06% in April- NBS,neutral,negative,Deceleration only as prices still rise
+49,Farmers predict lower food prices amid FG’s fertiliser intervention,neutral,positive,Predicted relief not yet delivered
