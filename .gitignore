@@ -20,5 +20,10 @@ Capstone Project Assignment.xlsx
 3MTT NextGen Project Brief Bank.xlsx
 
 # Raw RSS captures may be dynamic and require separate reuse review.
-data/raw/google_news_rss/*.xml
+data/raw/*.xml
+data/raw/google_news_rss/
 data/raw/day1_google_news_rss_sample.json
+
+# Local packaging copy and zip for offline/file-upload submissions
+DS20_Fortune_Uzodinma_Submission/
+*.zip

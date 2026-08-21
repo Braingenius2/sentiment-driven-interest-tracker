@@ -2,6 +2,7 @@
 
 **Brief:** DS-20 — Sentiment-Driven Interest Tracker (3MTT Data Science capstone)
 **Participant:** Fortune Uzodinma
+**Demo video (2–3 min):** [Watch on Loom](https://www.loom.com/share/43d676bdc2364beb9bd2df42762e74dd)
 
 ## What this project does
 
