@@ -336,9 +336,9 @@ The exact structure may be simplified if it helps the project remain understanda
 The project is a learning exercise, not an outsourced submission.
 
 - The assistant will explain concepts before asking for implementation.
-- Fortune will write and run the main notebook cells.
+- The author writes and runs the main notebook cells.
 - The assistant will provide hints, debugging help, review, and small examples.
-- Each milestone ends with Fortune explaining what the code did and why.
+- Each milestone ends with the author explaining what the code did and why.
 - Results must be interpreted from actual outputs, not invented in advance.
 - Any code copied from documentation must be understood, adapted, and cited where appropriate.
 - We will prefer small working steps over large generated blocks of code.
@@ -357,7 +357,7 @@ The project is complete when:
 - Weekly interest and sentiment trends are visualized.
 - Findings do not claim that news coverage equals public opinion.
 - The README explains setup, data, method, results, limitations, and reproduction.
-- The 2-3 minute demo video explains Fortune's own work.
+- The 2-3 minute demo video explains the author's own work.
 - No secret keys, private credentials, or unnecessary personal identifiers are published.
 - Any Streamlit, HuggingFace, or forecasting work is clearly marked optional.
 

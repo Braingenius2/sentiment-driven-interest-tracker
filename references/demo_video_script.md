@@ -80,7 +80,7 @@
 - [ ] Watch it back once: audio audible, text readable, under 3 minutes
 - [ ] Export MP4, name it `DS20_Fortune_Uzodinma_Demo.mp4`
 - [ ] Upload where the portal asks (or YouTube unlisted)
-- [ ] Description line: `DS-20 Sentiment-Driven Interest Tracker — Fortune Uzodinma (FE/24/4175253063)` — Fellow ID lives here and in the portal, never in the public README
+- [ ] Description line: `DS-20 Sentiment-Driven Interest Tracker — Fortune Uzodinma (your Fellow ID)` — Fellow ID lives here and in the portal, never in the public README
 - [ ] Submit on the portal before the deadline
 
 ## If you're short on time
