@@ -1,0 +1,24 @@
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Notebook-generated state
+.ipynb_checkpoints/
+notebooks/*_executed.ipynb
+
+# Secrets and local configuration
+.env
+*.key
+*.pem
+
+# Local assignment source documents may contain participant information.
+Data Science.pdf
+Capstone Project Assignment.xlsx
+3MTT NextGen Project Brief Bank.xlsx
+
+# Raw RSS captures may be dynamic and require separate reuse review.
+data/raw/google_news_rss/*.xml
+data/raw/day1_google_news_rss_sample.json

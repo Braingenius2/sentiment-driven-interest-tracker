@@ -1,0 +1,65 @@
+{
+  "source": "Google News RSS contingency, multi-query collection",
+  "queries": [
+    "Nigeria food prices",
+    "Nigeria food inflation",
+    "Nigeria cost of living",
+    "Nigeria rice prices",
+    "Nigeria food affordability",
+    "Nigeria staple food prices",
+    "Nigeria purchasing power food"
+  ],
+  "feed_urls": [
+    "https://news.google.com/rss/search?q=Nigeria%20food%20prices&hl=en-NG&gl=NG&ceid=NG%3Aen",
+    "https://news.google.com/rss/search?q=Nigeria%20food%20inflation&hl=en-NG&gl=NG&ceid=NG%3Aen",
+    "https://news.google.com/rss/search?q=Nigeria%20cost%20of%20living&hl=en-NG&gl=NG&ceid=NG%3Aen",
+    "https://news.google.com/rss/search?q=Nigeria%20rice%20prices&hl=en-NG&gl=NG&ceid=NG%3Aen",
+    "https://news.google.com/rss/search?q=Nigeria%20food%20affordability&hl=en-NG&gl=NG&ceid=NG%3Aen",
+    "https://news.google.com/rss/search?q=Nigeria%20staple%20food%20prices&hl=en-NG&gl=NG&ceid=NG%3Aen",
+    "https://news.google.com/rss/search?q=Nigeria%20purchasing%20power%20food&hl=en-NG&gl=NG&ceid=NG%3Aen"
+  ],
+  "collection_time_utc": "2026-08-14T12:10:20.027787+00:00",
+  "three_month_cutoff_utc": "2026-05-14T12:10:20.027787+00:00",
+  "feed_items_raw": 676,
+  "unique_records_after_deduplication": 517,
+  "collection_mode": "replay",
+  "feed_count": 7,
+  "rows_after_three_month_filter": 185,
+  "rows_frozen": 111,
+  "distinct_source_labels": 51,
+  "food_terms": [
+    "food",
+    "rice",
+    "bread",
+    "cooking",
+    "staple",
+    "grocery",
+    "diet",
+    "maize",
+    "yam",
+    "beans",
+    "food security",
+    "food crisis"
+  ],
+  "price_terms": [
+    "price",
+    "prices",
+    "inflation",
+    "affordability",
+    "cost",
+    "expensive",
+    "scarcity",
+    "shortage",
+    "market",
+    "hardship"
+  ],
+  "topic_phrases": [
+    "cost of living",
+    "purchasing power",
+    "food inflation",
+    "food prices",
+    "food crisis",
+    "food affordability"
+  ],
+  "filter_rule": "food term plus price term, or an approved topic phrase"
+}
