@@ -95,4 +95,8 @@ Optional extensions (Streamlit dashboard, HuggingFace comparison, forecasting) a
 
 ## Teaching app (post-submission extension)
 
-`app/` contains **Sentiment Tracker Tutor**, an interactive Streamlit app that teaches this project's workflow to 3MTT peers and beginners using the real artifacts in `data/`. It was added after the capstone submission and does not change any graded content. See `app/README.md` for how to run or deploy it.
+`app/` contains **Sentiment Tracker Tutor**, an interactive Streamlit app that teaches this project's workflow to 3MTT peers and beginners using the real artifacts in `data/`. It was added after the capstone submission and does not change any graded content.
+
+**Live app:** https://sentiment-driven-interest-tracker-by-fortune.streamlit.app/
+
+See `app/README.md` for how to run or deploy it.

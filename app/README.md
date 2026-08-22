@@ -1,5 +1,7 @@
 # Sentiment Tracker Tutor (teaching app)
 
+**Live app:** https://sentiment-driven-interest-tracker-by-fortune.streamlit.app/
+
 **Post-submission extension** of the DS-20 capstone in this repository. The graded capstone
 content (notebooks, data, results) is unchanged; this folder adds an interactive app that
 *teaches* the workflow to 3MTT peers and data-science beginners using the project's real
