@@ -92,3 +92,7 @@ Run the notebooks in order:
 ```
 
 Optional extensions (Streamlit dashboard, HuggingFace comparison, forecasting) are documented in `implementation_file.md` and are not part of the core DS-20 submission.
+
+## Teaching app (post-submission extension)
+
+`app/` contains **Sentiment Tracker Tutor**, an interactive Streamlit app that teaches this project's workflow to 3MTT peers and beginners using the real artifacts in `data/`. It was added after the capstone submission and does not change any graded content. See `app/README.md` for how to run or deploy it.
