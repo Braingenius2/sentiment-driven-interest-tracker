@@ -20,6 +20,13 @@ Five modules, one light quiz each:
    macro F1, and the real misclassifications.
 5. **Trends and Limits** — weekly attention and sentiment charts, plus what the data
    cannot measure (news coverage ≠ public opinion).
+6. **Live Tracker** — the same 7 RSS queries refreshed weekly by GitHub Actions;
+   rolling article count, distinct sources, and a live weekly chart (capstone files stay frozen).
+
+## Media
+
+`media/tutor_promo.mp4` — 33s motion-graphics promo generated from the real artifacts
+by `media/make_promo.py` (matplotlib → ffmpeg).
 
 ## Run locally
 

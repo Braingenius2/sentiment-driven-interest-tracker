@@ -119,6 +119,7 @@ module = st.sidebar.radio(
         "3 · Baseline vs Model (playground)",
         "4 · Honest Evaluation",
         "5 · Trends and Limits",
+        "6 · Live Tracker (auto-refreshing)",
     ],
 )
 st.sidebar.caption(
@@ -526,4 +527,74 @@ kept as *separate measures* on purpose.
     st.success(
         "You finished the tour. You just walked a real pipeline: question → source gate → "
         "frozen data → human labels → baseline vs model → honest metrics → careful claims."
+    )
+
+# ============================================================================= 6 · Live Tracker
+elif module.startswith("6"):
+    st.title("Module 6 · Live Tracker (auto-refreshing)")
+
+    st.markdown(
+        """
+This dashboard updates itself every Monday at 06:00 UTC via GitHub Actions.
+The graded capstone's frozen dataset never changes; this is a *rolling* view built
+from the same 7 RSS queries merged over time.
+"""
+    )
+
+    live_path = ROOT / "tracker" / "data" / "articles_live.csv"
+    weekly_live_path = ROOT / "tracker" / "data" / "weekly_interest_live.csv"
+    stamp_path = ROOT / "tracker" / "data" / "last_collected.json"
+
+    if not live_path.exists():
+        st.info("No live data yet — the first scheduled collection runs on the next Monday, or trigger it manually in Actions.")
+    else:
+        live = pd.read_csv(live_path)
+        live["pub_datetime"] = pd.to_datetime(live["pub_datetime"], errors="coerce", utc=True)
+        stamp = json.loads(stamp_path.read_text(encoding="utf-8")) if stamp_path.exists() else {}
+
+        # Window the display to the last 3 months, matching the capstone's window logic.
+        cutoff = pd.Timestamp.now(tz="UTC") - pd.DateOffset(months=3)
+        windowed = live[live["pub_datetime"] >= cutoff].copy()
+
+        col1, col2, col3, col4 = st.columns(4)
+        col1.metric("Rolling headlines", len(live))
+        col2.metric("In last 3 months", len(windowed))
+        col3.metric("Distinct sources", live["source_label"].nunique())
+        col4.metric("Weekly periods", stamp.get("weekly_periods", "—"))
+        st.caption(f"Last collected: {stamp.get('last_collected_utc', 'unknown')}  ·  Window cutoff: {cutoff.date()}")
+
+        if windowed.empty:
+            st.warning("No headlines in the current 3-month window yet.")
+        else:
+            windowed["week"] = windowed["pub_datetime"].dt.tz_localize(None).dt.to_period("W").astype(str)
+            live_weekly = (
+                windowed.groupby("week")
+                .agg(article_count=("article_url", "nunique"), distinct_source_count=("source_label", "nunique"))
+                .reset_index().sort_values("week")
+            )
+            fig = go.Figure()
+            fig.add_scatter(x=live_weekly["week"], y=live_weekly["article_count"], mode="lines+markers", name="Articles")
+            fig.add_scatter(x=live_weekly["week"], y=live_weekly["distinct_source_count"], mode="lines+markers", name="Distinct sources", line=dict(dash="dash"))
+            fig.update_layout(title="Weekly attention — live rolling window", xaxis_title="Week", yaxis_title="Count", hovermode="x unified")
+            st.plotly_chart(fig, use_container_width=True)
+
+            st.markdown("### Most recent headlines")
+            recent = windowed.sort_values("pub_datetime", ascending=False).head(12)
+            st.dataframe(recent[["pub_datetime", "source_label", "headline"]], use_container_width=True, hide_index=True)
+
+        st.caption(
+            "Raw RSS captures are never committed (reuse/attribution review pending); only derived "
+            "headline metadata is stored. The frozen capstone dataset remains unchanged for grading."
+        )
+
+    quiz(
+        "m6",
+        "Why are the frozen capstone files and the rolling live files kept separate?",
+        [
+            "Because Git cannot store two CSVs at once",
+            "So the graded, timestamped capstone stays reproducible while the dashboard can keep moving",
+            "Because the live dashboard uses a different topic",
+        ],
+        1,
+        "Grading needs a frozen, reproducible artifact. A live product needs a moving one. Keeping them side-by-side gives you both proofs.",
     )
