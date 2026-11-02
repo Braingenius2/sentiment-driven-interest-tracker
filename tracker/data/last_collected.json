@@ -1,8 +1,8 @@
 {
-  "last_collected_utc": "2026-10-26T12:45:10.153945+00:00",
-  "rows": 823,
-  "distinct_sources": 142,
-  "oldest": "2017-10-04T07:00:00+00:00",
-  "newest": "2026-10-26T10:45:00+00:00",
-  "weekly_periods": 104
+  "last_collected_utc": "2026-11-02T15:32:12.277245+00:00",
+  "rows": 904,
+  "distinct_sources": 150,
+  "oldest": "2014-07-31T07:00:00+00:00",
+  "newest": "2026-11-02T10:54:37+00:00",
+  "weekly_periods": 135
 }
